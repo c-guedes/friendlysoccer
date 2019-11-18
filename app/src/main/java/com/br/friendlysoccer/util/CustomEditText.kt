@@ -34,7 +34,7 @@ class CustomEditText : androidx.appcompat.widget.AppCompatEditText {
             attrs,
             R.styleable.CustomEditText
         )
-        val cf = a.getInteger(R.styleable.NossaFonte_fontName, 0)
+        val cf = a.getInteger(R.styleable.CustomEditText_fontName, 0)
         val fontName: Int
         fontName = when (cf) {
             1 -> R.string.GothamBold

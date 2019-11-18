@@ -87,7 +87,7 @@
             android:ems="10"
             android:hint="@string/insira_seu_nome"
             android:paddingStart="20dp"
-            android:text="@={cadastroViewModel.array}"
+            android:text="@={cadastroViewModel.array[0]}"
             android:textColor="#0D1B1E"
             android:textSize="18sp"
             app:fontName="GothamBook"

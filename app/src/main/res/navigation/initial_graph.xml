@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/slpashScreen"
-        android:name="com.br.friendlysoccer.ui.slpash.SplashScreen"
+        android:name="com.br.friendlysoccer.ui.splash.SplashScreen"
         android:label="fragment_slpash_screen"
         tools:layout="@layout/fragment_splash_screen" >
         <action

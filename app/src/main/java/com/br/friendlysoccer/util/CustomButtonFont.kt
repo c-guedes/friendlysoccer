@@ -32,7 +32,7 @@ class CustomButtonFont : androidx.appcompat.widget.AppCompatButton {
             attrs,
             R.styleable.CustomButtonFont
         )
-        val cf = a.getInteger(R.styleable.NossaFonte_fontName, 0)
+        val cf = a.getInteger(R.styleable.CustomButtonFont_fontName, 0)
         val fontName: Int
         fontName = when (cf) {
             1 -> R.string.GothamBold

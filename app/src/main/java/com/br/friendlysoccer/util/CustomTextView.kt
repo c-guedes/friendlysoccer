@@ -30,9 +30,9 @@ class CustomTextView : androidx.appcompat.widget.AppCompatTextView {
 
         val a = context.obtainStyledAttributes(
             attrs,
-            R.styleable.NossaFonte
+            R.styleable.CustomTextView
         )
-        val cf = a.getInteger(R.styleable.NossaFonte_fontName, 0)
+        val cf = a.getInteger(R.styleable.CustomTextView_fontName, 0)
         val fontName: Int
         fontName = when (cf) {
             1 -> R.string.GothamBold

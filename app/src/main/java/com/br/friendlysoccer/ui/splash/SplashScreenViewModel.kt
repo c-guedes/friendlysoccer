@@ -1,8 +1,7 @@
-package com.br.friendlysoccer.ui.slpash
+package com.br.friendlysoccer.ui.splash
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.delay
 

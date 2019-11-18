@@ -1,4 +1,4 @@
-package com.br.friendlysoccer.ui.slpash
+package com.br.friendlysoccer.ui.splash
 
 import android.app.Application
 import androidx.lifecycle.ViewModel

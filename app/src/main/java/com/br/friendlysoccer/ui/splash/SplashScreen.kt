@@ -1,4 +1,4 @@
-package com.br.friendlysoccer.ui.slpash
+package com.br.friendlysoccer.ui.splash
 
 import android.os.Bundle
 import android.os.Handler
@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.br.friendlysoccer.R
-import com.br.friendlysoccer.databinding.FragmentSlpashScreenBinding
+import com.br.friendlysoccer.databinding.FragmentSplashScreenBinding
 
 class SplashScreen : Fragment() {
     private var SPLASH_SCREEN_DELAY_MILLIS = 3000L
@@ -23,7 +23,7 @@ class SplashScreen : Fragment() {
 
         // Get a reference to the binding object and inflate the fragment views.
 
-        val binding: FragmentSlpashScreenBinding = DataBindingUtil.inflate(
+        val binding: FragmentSplashScreenBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_splash_screen, container, false
         )
 
@@ -38,10 +38,10 @@ class SplashScreen : Fragment() {
         binding.splashScreenViewModel = splashScreenModel
         binding.lifecycleOwner = this
 
-        val animAccelerateDecelerate = AnimationUtils.loadAnimation(context,R.anim.fade_out);
+        val animAccelerateDecelerate = AnimationUtils.loadAnimation(context, R.anim.fade_out);
         val image = binding.slpashText
 
-        val animAccelerateDecelerate2 = AnimationUtils.loadAnimation(context,R.anim.move_45);
+        val animAccelerateDecelerate2 = AnimationUtils.loadAnimation(context, R.anim.move_45);
         val image2 = binding.ballSplash
 
 
@@ -52,7 +52,7 @@ class SplashScreen : Fragment() {
             findNavController().navigate(
                 SplashScreenDirections.actionSlpashScreenToLoginPage()
             )
-        },SPLASH_SCREEN_DELAY_MILLIS)
+        }, SPLASH_SCREEN_DELAY_MILLIS)
 
 
         return binding.root
