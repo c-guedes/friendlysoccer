@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="cadastroViewModel"
+            type="com.br.friendlysoccer.ui.cadastro.CadastroViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="24dp">
+
+
+        <include
+            android:id="@+id/include2"
+            layout="@layout/header" />
+
+        <com.br.friendlysoccer.util.CustomTextView
+            android:id="@+id/nossaFonte2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Estamos a um passo"
+            android:textColor="#0D1B1E"
+            android:textSize="32sp"
+            app:fontName="GothamBook"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline4"
+            app:layout_constraintTop_toBottomOf="@+id/include2" />
+
+        <com.br.friendlysoccer.util.CustomTextView
+            android:id="@+id/nossaFonte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="de conectar-lo a milhares de jogadores"
+            android:textSize="20sp"
+            app:fontName="GothamBook"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline4"
+            app:layout_constraintTop_toBottomOf="@+id/nossaFonte2" />
+
+        <com.br.friendlysoccer.util.CustomEditText
+            android:id="@+id/customEditText10"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/etd_login"
+            android:ems="10"
+            android:hint="@string/email"
+            android:paddingStart="20dp"
+            android:text="@={cadastroViewModel.array[1]}"
+            android:textColor="#0D1B1E"
+
+            android:textSize="18sp"
+            app:fontName="GothamBook"
+            app:layout_constraintBottom_toTopOf="@+id/nossaFonte11"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/guideline4"
+            app:layout_constraintTop_toBottomOf="@+id/nossaFonte10" />
+
+        <com.br.friendlysoccer.util.CustomTextView
+            android:id="@+id/nossaFonte10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="E-mail"
+            android:textColor="#0D1B1E"
+            android:textSize="22sp"
+
+            app:fontName="GothamBook"
+            app:layout_constraintBottom_toTopOf="@+id/customEditText10"
+            app:layout_constraintStart_toStartOf="@+id/guideline4"
+            app:layout_constraintTop_toBottomOf="@+id/customEditText9" />
+
+        <com.br.friendlysoccer.util.CustomEditText
+            android:id="@+id/customEditText9"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/etd_login"
+            android:ems="10"
+            android:hint="@string/insira_seu_nome"
+            android:paddingStart="20dp"
+            android:text="@={cadastroViewModel.array}"
+            android:textColor="#0D1B1E"
+            android:textSize="18sp"
+            app:fontName="GothamBook"
+            app:layout_constraintBottom_toTopOf="@+id/nossaFonte10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/guideline4"
+            app:layout_constraintTop_toBottomOf="@+id/nossaFonte3" />
+
+        <com.br.friendlysoccer.util.CustomEditText
+            android:id="@+id/customEditText11"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/etd_login"
+            android:ems="10"
+            android:hint="@string/senha"
+            android:paddingStart="20dp"
+            android:text="@={cadastroViewModel.array[2]}"
+            android:textColor="#0D1B1E"
+
+
+            android:textSize="18sp"
+
+            app:fontName="GothamBook"
+            app:layout_constraintBottom_toTopOf="@+id/customEditText12"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/guideline4"
+            app:layout_constraintTop_toBottomOf="@+id/nossaFonte11" />
+
+        <com.br.friendlysoccer.util.CustomEditText
+            android:id="@+id/customEditText12"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/etd_login"
+            android:ems="10"
+            android:hint="@string/confirmar_senha"
+            android:paddingStart="20dp"
+            android:text="@={cadastroViewModel.array[3]}"
+            android:textColor="#0D1B1E"
+
+
+            android:textSize="18sp"
+            app:fontName="GothamBook"
+            app:layout_constraintBottom_toTopOf="@+id/nossaFonte12"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/guideline4"
+            app:layout_constraintTop_toBottomOf="@+id/customEditText11" />
+
+        <com.br.friendlysoccer.util.CustomTextView
+            android:id="@+id/nossaFonte11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Senha"
+            android:textColor="#0D1B1E"
+            android:textSize="22sp"
+
+            app:fontName="GothamBook"
+            app:layout_constraintBottom_toTopOf="@+id/customEditText11"
+            app:layout_constraintStart_toStartOf="@+id/guideline4"
+            app:layout_constraintTop_toBottomOf="@+id/customEditText10" />
+
+        <com.br.friendlysoccer.util.CustomTextView
+            android:id="@+id/nossaFonte3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Nome"
+            android:textColor="#0D1B1E"
+            android:textSize="22sp"
+            app:fontName="GothamBook"
+            app:layout_constraintBottom_toTopOf="@+id/customEditText9"
+            app:layout_constraintStart_toStartOf="@+id/guideline4"
+            app:layout_constraintTop_toBottomOf="@+id/nossaFonte" />
+
+        <com.br.friendlysoccer.util.CustomTextView
+            android:id="@+id/nossaFonte12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="Já tem uma conta? Fazer login"
+            android:textSize="16sp"
+            app:fontName="GothamBook"
+            app:layout_constraintBottom_toTopOf="@+id/customButtonFont3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/customEditText12" />
+
+        <com.br.friendlysoccer.util.CustomButtonFont
+            android:id="@+id/customButtonFont3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#7798AB"
+            android:padding="18dp"
+            android:text="CADASTRAR"
+            android:onClick="@{() -> cadastroViewModel.makeNewLogin()}"
+            android:textColor="#FFF"
+            android:textSize="18sp"
+            app:fontName="GothamBook"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.04" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

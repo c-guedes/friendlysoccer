@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/initial_graph"
+    app:startDestination="@id/slpashScreen"
+    >
+
+    <fragment
+        android:id="@+id/slpashScreen"
+        android:name="com.br.friendlysoccer.ui.slpash.SplashScreen"
+        android:label="fragment_slpash_screen"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/action_slpashScreen_to_loginPage"
+            app:destination="@id/loginPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginPage"
+        android:name="com.br.friendlysoccer.ui.login.Login"
+        tools:layout="@layout/fragment_login"
+        android:label="LoginPage" >
+        <action
+            android:id="@+id/action_loginPage_to_cadastro"
+            app:destination="@id/cadastro" />
+        <action
+            android:id="@+id/action_loginPage_to_home"
+            app:destination="@id/home2" />
+    </fragment>
+    <fragment
+        android:id="@+id/cadastro"
+        tools:layout="@layout/fragment_cadastro"
+        android:name="com.br.friendlysoccer.ui.cadastro.Cadastro"
+        android:label="Cadastro" />
+    <fragment
+        android:id="@+id/home2"
+        android:name="com.br.friendlysoccer.ui.home.Home"
+        android:label="Home" />
+</navigation>

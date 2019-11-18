@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "569086414522",
+    "firebase_url": "https://friendlysoccer-52fe0.firebaseio.com",
+    "project_id": "friendlysoccer-52fe0",
+    "storage_bucket": "friendlysoccer-52fe0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:569086414522:android:c8ff995b9f430a8dd0bc83",
+        "android_client_info": {
+          "package_name": "com.br.friendlysoccer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "569086414522-653tf2eucq36l9g5m3ne61t76mu5k489.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOsjWHULFL2rTYlR0jVbfoWXVC1qt8ckQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "569086414522-653tf2eucq36l9g5m3ne61t76mu5k489.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">FriendlySoccer</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="GothamBold">GothamBold</string>
+    <string name="GothamBookItalic">GothamBookItalic</string>
+    <string name="GothamBookLight">GothamBookLight</string>
+    <string name="GothamMedium">GothamMedium</string>
+    <string name="GothamBook">GothamBook</string>
+    <string name="usuario_senha">Entre com seu usuário e senha</string>
+    <string name="bem_vindo">Bem vindo</string>
+    <string name="user">usuário</string>
+    <string name="senha">senha</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="entrar">Entrar</string>
+    <string name="background">background</string>
+    <string name="card">card</string>
+    <string name="confirmar_senha">Confirmar senha</string>
+    <string name="email">Insira seu e-mail</string>
+    <string name="insira_seu_nome">Insira seu nome</string>
+</resources>

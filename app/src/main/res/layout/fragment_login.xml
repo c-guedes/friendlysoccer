@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="sale"
+            type="java.lang.Boolean"/>
+        <variable
+            name="loginViewModel"
+            type="com.br.friendlysoccer.ui.login.LoginViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.login.Login">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/background"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/background" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="0dp"
+            android:contentDescription="@string/background"
+            android:layout_height="0dp"
+            android:alpha="0.2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/shape_overlay" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            style="@style/MarginsLimit"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/card"
+            android:alpha="0.9"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline2"
+            app:srcCompat="@drawable/card_shape_overlay" />
+
+        <com.br.friendlysoccer.util.CustomButtonFont
+            android:id="@+id/btnGet"
+            android:layout_width="0dp"
+            android:elevation="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/btn_cadastrar"
+            android:onClick="@{() -> loginViewModel.navigate(`Teste`)}"
+            android:padding="10dp"
+            android:text="@string/cadastrar"
+            android:textAlignment="center"
+            android:textColor="#0D1B1E"
+            android:textSize="18sp"
+            app:fontName="GothamBold"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+            app:layout_constraintEnd_toStartOf="@+id/btnLogar"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/imageView4" />
+
+        <com.br.friendlysoccer.util.CustomButtonFont
+            android:id="@+id/btnLogar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:elevation="0dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/btn_logar"
+            android:onClick="@{() -> loginViewModel.doLogin()}"
+            android:text="@string/entrar"
+            android:textAlignment="center"
+            android:textColor="#0D1B1E"
+            android:textSize="18sp"
+            app:fontName="GothamBold"
+            app:layout_constraintBottom_toBottomOf="@+id/btnGet"
+            app:layout_constraintEnd_toEndOf="@+id/imageView4"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnGet" />
+
+        <com.br.friendlysoccer.util.CustomEditText
+            android:id="@+id/editLogin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/etd_login"
+            android:ems="10"
+            android:hint="@string/user"
+            android:inputType="textPersonName"
+            android:paddingStart="20dp"
+            app:fontName="GothamBook"
+            android:text="@={loginViewModel.nameUser}"
+            android:textColor="#0D1B1E"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/editPass"
+            app:layout_constraintEnd_toEndOf="@+id/editPass"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/editPass"
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            app:layout_constraintVertical_bias="0.48000002"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <com.br.friendlysoccer.util.CustomEditText
+            android:id="@+id/editPass"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/etd_login"
+            android:ems="10"
+            android:paddingStart="20dp"
+            android:textColor="#0D1B1E"
+            android:textSize="18sp"
+            app:fontName="GothamBook"
+            android:inputType="numberPassword"
+            android:text="@={loginViewModel.password}"
+            android:hint="@string/senha"
+            app:layout_constraintBottom_toTopOf="@+id/btnLogar"
+            app:layout_constraintEnd_toEndOf="@+id/btnLogar"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/btnGet"
+            app:layout_constraintTop_toBottomOf="@+id/editLogin" />
+
+        <com.br.friendlysoccer.util.CustomTextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/usuario_senha"
+            android:textSize="18sp"
+            app:fontName="GothamBook"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <com.br.friendlysoccer.util.CustomTextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/bem_vindo"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+            android:textColor="#0D1B1E"
+            android:textSize="35sp"
+            app:fontName="GothamMedium"
+            app:layout_constraintStart_toStartOf="@+id/editLogin"
+            app:layout_constraintTop_toTopOf="@+id/imageView4" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.8" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.2" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+<!--        <include-->
+<!--            layout="@layout/loading"-->
+<!--            android:visibility="@{loginViewModel.isLoading ? View.VISIBLE : View.GONE}"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="fontName" format="enum">
+        <enum name="GothamBold" value="1" />
+        <enum name="GothamBookItalic" value="2" />
+        <enum name="GothamLight" value="4" />
+        <enum name="GothamMedium" value="5" />
+        <enum name="GothamBook" value="6" />
+    </attr>
+
+    <declare-styleable name="CustomTextView">
+        <attr name="fontName" />
+    </declare-styleable>
+    <declare-styleable name="CustomButtonFont">
+        <attr name="fontName" />
+
+    </declare-styleable>
+    <declare-styleable name="CustomEditText">
+        <attr name="fontName" />
+
+    </declare-styleable>
+</resources>
