@@ -49,11 +49,6 @@ class HomeViewModel(
 //        }
     }
 
-    fun getUser() {
-        uiScope.launch {
-            Log.e("USER", repo.getUser().toString())
-        }
-    }
 
 
 }

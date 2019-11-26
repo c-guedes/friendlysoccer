@@ -1,6 +1,7 @@
 package com.br.friendlysoccer.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,7 +18,6 @@ import com.br.friendlysoccer.ui.login.LoginDirections
 import com.google.firebase.auth.FirebaseAuth
 
 class Home : Fragment() {
-    private val mAuth = FirebaseAuth.getInstance()
     private lateinit var viewModel: HomeViewModel
     private lateinit var navController: NavController
 
@@ -33,7 +33,7 @@ class Home : Fragment() {
         )
 
 
-        val repo = FirebaseRepository(mAuth)
+        val repo = FirebaseRepository.getInstance()
         val viewModelFactory = HomeViewModelFactory(repo, this.activity!!.application)
 
         // Get a reference to the ViewModel associated with this fragment.
@@ -47,6 +47,7 @@ class Home : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
 
         val application = requireNotNull(this.activity).application
+        Log.e("USER", repo.getDisplayName().toString())
 
         return binding.root
 

@@ -1,20 +1,22 @@
 package com.br.friendlysoccer.ui.cadastro
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.br.friendlysoccer.R
 import com.br.friendlysoccer.data.repository.FirebaseRepository
 import com.br.friendlysoccer.databinding.FragmentCadastroBinding
+import com.br.friendlysoccer.util.Validator
+import com.br.friendlysoccer.util.Validator.PASSWORD_REGEX
 import com.google.firebase.auth.FirebaseAuth
 
 class Cadastro : Fragment() {
-    private val mAuth = FirebaseAuth.getInstance()
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -25,7 +27,7 @@ class Cadastro : Fragment() {
             inflater, R.layout.fragment_cadastro, container, false
         )
 
-        val repo = FirebaseRepository(mAuth)
+        val repo = FirebaseRepository.getInstance()
         val viewModelFactory = CadastrosViewModelFactory(repo, this.activity!!.application)
 
         // Get a reference to the ViewModel associated with this fragment.
@@ -38,7 +40,25 @@ class Cadastro : Fragment() {
         binding.cadastroViewModel = cadastroViewModels
         binding.lifecycleOwner = this
 
+
+
+        initializeValidator(cadastroViewModels)
+
+
         return binding.root
+    }
+
+    private fun initializeValidator(viewModel: CadastroViewModel) {
+        viewModel.getPass().observe(this,
+            Observer { pass ->
+                pass?.let {
+                    if(Validator.doValidate(pass.toString(),PASSWORD_REGEX)){
+                        Log.e("TESTE","CERTO")
+                    }else{
+                        Log.e("TESTE","FALSO")
+                    }
+                }
+            })
     }
 
 }

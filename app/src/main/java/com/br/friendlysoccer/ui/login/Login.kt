@@ -17,7 +17,6 @@ import com.br.friendlysoccer.databinding.FragmentLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 
 class Login : Fragment() {
-    private val mAuth = FirebaseAuth.getInstance()
     private lateinit var viewModel: LoginViewModel
     private lateinit var navController: NavController
 
@@ -33,7 +32,7 @@ class Login : Fragment() {
         )
 
 
-        val repo = FirebaseRepository(mAuth)
+        val repo = FirebaseRepository.getInstance()
         val viewModelFactory = LoginViewModelFactory(repo, this.activity!!.application)
 
         // Get a reference to the ViewModel associated with this fragment.
@@ -65,15 +64,6 @@ class Login : Fragment() {
             })
     }
 
-    @CallSuper
-    private fun onViewModelCreated() {
-        viewModel.navigationCommand.observe(this,
-            Observer { request ->
-                //                request?.let {
-//                    findNavController().navigate(LoginDirections.actionLoginPageToCadastro())
-//                }
-            })
-    }
 
 
     fun toCadastro() {

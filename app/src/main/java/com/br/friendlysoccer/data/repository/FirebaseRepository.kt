@@ -7,9 +7,13 @@ import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 
-class FirebaseRepository(private val mAuth: FirebaseAuth) {
+class FirebaseRepository {
+    private val mAuth = FirebaseAuth.getInstance()
 
-    fun getUser() = mAuth.currentUser
+    var user = mAuth.currentUser
+
+    fun getDisplayName() = user?.displayName
+
 
     fun doSimpliedLogin(user: User): Task<AuthResult> {
         return mAuth.signInWithEmailAndPassword(user.email, user.pass)
@@ -26,7 +30,7 @@ class FirebaseRepository(private val mAuth: FirebaseAuth) {
         val request = UserProfileChangeRequest.Builder()
             .setDisplayName(name)
             .build()
-        getUser()?.updateProfile(request)?.addOnSuccessListener { success ->
+        user?.updateProfile(request)?.addOnSuccessListener { success ->
             Log.e("USER", "alterado")
         }?.addOnFailureListener { failure ->
             Log.e("USER", "FAIL")
@@ -53,32 +57,16 @@ class FirebaseRepository(private val mAuth: FirebaseAuth) {
         mAuth.signOut()
     }
 
-    fun updateUser() {
-
-    }
-
-
-    @Override
-    fun onAuthStateChanged(mAuth: FirebaseAuth) {
-        val user1 = mAuth.currentUser
-
-        if (user1 != null) {
-            //usuario logado
-
-        }
-    }
-
-
     companion object {
         @Volatile
         private var instance: FirebaseRepository? = null
 
-        fun getInstance(mAuth: FirebaseAuth) =
+        fun getInstance() =
             instance
                 ?: synchronized(this) {
                     instance
                         ?: FirebaseRepository(
-                            mAuth
+
                         ).also { instance = it }
                 }
     }

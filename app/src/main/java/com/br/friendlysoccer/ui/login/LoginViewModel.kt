@@ -36,8 +36,10 @@ class LoginViewModel(
         uiScope.launch {
             withContext(Dispatchers.IO) {
                 val user = User(nameUser.value.toString(), password.value.toString())
-                Log.e("USER", nameUser.value.toString() + password.value.toString() )
+
+
                 user.let { repo.doSimpliedLogin(user).addOnSuccessListener { navigate("Teste2") }}
+                Log.e("USER", repo.getDisplayName().toString())
             }
         }
     }
@@ -47,12 +49,6 @@ class LoginViewModel(
 //        uiScope.launch {
 //
 //        }
-    }
-
-    fun getUser() {
-        uiScope.launch {
-            Log.e("USER", repo.getUser().toString())
-        }
     }
 
 

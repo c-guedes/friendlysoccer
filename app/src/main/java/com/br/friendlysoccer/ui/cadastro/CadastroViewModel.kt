@@ -2,24 +2,32 @@ package com.br.friendlysoccer.ui.cadastro
 
 import android.app.Application
 import android.util.Log
+import androidx.databinding.Bindable
+import androidx.databinding.BindingAdapter
 import androidx.databinding.ObservableBoolean
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.br.friendlysoccer.data.repository.FirebaseRepository
 import kotlinx.coroutines.*
 
+@Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class CadastroViewModel(private val repo: FirebaseRepository, application: Application) :
     AndroidViewModel(application) {
-    val password: MutableLiveData<String> = MutableLiveData()
-    val nameUser: MutableLiveData<String> = MutableLiveData()
-
-    val array: MutableLiveData<ArrayList<String>> = MutableLiveData()
+    val displayName: MutableLiveData<String> = MutableLiveData()
+    val userEmail: MutableLiveData<String> = MutableLiveData()
+    val userPassConf: MutableLiveData<String> = MutableLiveData()
 
 
     val isLoading = ObservableBoolean(false)
     val context = getApplication<Application>().applicationContext
     private val _navigationCommand: MutableLiveData<String> = MutableLiveData()
     val navigationCommand: MutableLiveData<String> = _navigationCommand
+
+    val userPass: MutableLiveData<String> = MutableLiveData()
+    fun getPass(): LiveData<String> {
+        return userPass
+    }
 
     private var viewModelJob = Job()
 
@@ -32,25 +40,29 @@ class CadastroViewModel(private val repo: FirebaseRepository, application: Appli
 
 
     fun makeNewLogin() {
-        uiScope.launch {
-            withContext(Dispatchers.IO) {
-                array.let {
-                    Log.e("USER", it.value?.get(0).toString())
+       // require(userPass.value.toString() == userPassConf.value.toString()) {
+            uiScope.launch {
+                withContext(Dispatchers.IO) {
                     repo.makeNewUser(
-                        it.value?.get(0).toString(),
-                        it.value?.get(1).toString(),
-                        it.value?.get(2).toString()
+                        displayName.value.toString(),
+                        userEmail.value.toString(),
+                        userPass.value.toString()
                     ).addOnSuccessListener { Log.e("USER", "CRIADO COM SUCESSO") }
                         .addOnFailureListener { exception ->
-                            Log.e(
-                                "USER",
-                                exception.localizedMessage
-                            )
+                            exception.let {
+                                Log.e("USER", it.localizedMessage)
+                            }
                         }
                 }
-            }
+           // }
         }
     }
+
+//    private fun fullCheck() {
+//        require(displayName.value.toString() != "") {}
+//
+//
+//    }
 
 
 }

@@ -4,6 +4,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="cadastroViewModel"
             type="com.br.friendlysoccer.ui.cadastro.CadastroViewModel" />
@@ -54,7 +56,7 @@
             android:ems="10"
             android:hint="@string/email"
             android:paddingStart="20dp"
-            android:text="@={cadastroViewModel.array[1]}"
+            android:text="@={cadastroViewModel.userEmail}"
             android:textColor="#0D1B1E"
 
             android:textSize="18sp"
@@ -87,9 +89,10 @@
             android:ems="10"
             android:hint="@string/insira_seu_nome"
             android:paddingStart="20dp"
-            android:text="@={cadastroViewModel.array[0]}"
+            android:text="@={cadastroViewModel.displayName}"
             android:textColor="#0D1B1E"
             android:textSize="18sp"
+
             app:fontName="GothamBook"
             app:layout_constraintBottom_toTopOf="@+id/nossaFonte10"
             app:layout_constraintEnd_toEndOf="parent"
@@ -106,7 +109,7 @@
             android:ems="10"
             android:hint="@string/senha"
             android:paddingStart="20dp"
-            android:text="@={cadastroViewModel.array[2]}"
+            android:text="@={cadastroViewModel.userPass}"
             android:textColor="#0D1B1E"
 
 
@@ -128,7 +131,7 @@
             android:ems="10"
             android:hint="@string/confirmar_senha"
             android:paddingStart="20dp"
-            android:text="@={cadastroViewModel.array[3]}"
+            android:text="@={cadastroViewModel.userPassConf}"
             android:textColor="#0D1B1E"
 
 
@@ -186,9 +189,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#7798AB"
+            android:onClick="@{() -> cadastroViewModel.makeNewLogin()}"
             android:padding="18dp"
             android:text="CADASTRAR"
-            android:onClick="@{() -> cadastroViewModel.makeNewLogin()}"
             android:textColor="#FFF"
             android:textSize="18sp"
             app:fontName="GothamBook"
